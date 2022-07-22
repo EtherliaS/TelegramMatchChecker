@@ -5,7 +5,7 @@ namespace TelegramMatchChecker.src
     public class Config
     {
         public string? SteamAPIKey { get; set; }
-        public string? TelegreamAPIKey { get; set; }
+        public string? TelegramAPIKey { get; set; }
         public bool? update_data { get; set; } = false; //not working
         public bool? send_matches { get; set; } = false; //also not working
 
@@ -17,7 +17,7 @@ namespace TelegramMatchChecker.src
                 Console.WriteLine("Config file created\nEnter Steam API key: ");
                 SteamAPIKey = Console.ReadLine();
                 Console.WriteLine("Enter Telegram API key:");
-                TelegreamAPIKey = Console.ReadLine();
+                TelegramAPIKey = Console.ReadLine();
                 File.WriteAllText("config.json", JsonSerializer.Serialize(this));
             }
             else
@@ -26,7 +26,7 @@ namespace TelegramMatchChecker.src
                 {
                     var w = JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json"));
                     SteamAPIKey = w.SteamAPIKey;
-                    TelegreamAPIKey = w.TelegreamAPIKey;
+                    TelegramAPIKey = w.TelegramAPIKey;
                     send_matches = w.send_matches;
                     update_data = w.update_data;
                 }
